@@ -1,0 +1,6 @@
+include pyproject.toml
+include CMakeLists.txt
+recursive-include src *.hpp *.cpp *.py CMakeLists.txt
+recursive-include tests *.py
+global-exclude __pycache__
+global-exclude *.pyc

@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel", "cmake>=3.26"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "mylib"
+version = "0.1.0"
+description = "A high-performance C++ library exposed to Python via pybind11"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "pytest-benchmark",
+    "ruff",
+]
+
+[tool.setuptools.packages.find]
+where = ["src/python"]
+include = ["mylib"]
+
+[tool.ruff]
+target-version = "py310"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
