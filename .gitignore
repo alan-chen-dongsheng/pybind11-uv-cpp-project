@@ -1,0 +1,18 @@
+# Build artifacts
+*.so
+*.pyc
+__pycache__/
+*.egg-info/
+build/
+dist/
+*.egg
+
+# Virtual environments
+.venv/
+
+# uv
+uv.lock
+
+# IDE
+.vscode/
+.idea/
