@@ -10,10 +10,10 @@ public:
     Calculator();
     explicit Calculator(double initial_value);
 
-    double add(double value) const;
-    double subtract(double value) const;
-    double multiply(double value) const;
-    double divide(double value) const;
+    double add(double value);
+    double subtract(double value);
+    double multiply(double value);
+    double divide(double value);
 
     double accumulate() const;
     void reset();

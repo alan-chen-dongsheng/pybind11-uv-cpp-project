@@ -35,12 +35,22 @@ class CMakeBuild(build_ext):
         build_dir = Path(self.build_temp)
         build_dir.mkdir(parents=True, exist_ok=True)
 
+        # Get system Python include dir (build isolation may mask sys.prefix)
+        system_python_include = subprocess.check_output(
+            ["/usr/bin/python3", "-c",
+             "import sysconfig; print(sysconfig.get_path('include'))"]
+        ).decode().strip()
+
+        import pybind11
+
         configure_args = [
             f"-DCMAKE_LIBRARY_OUTPUT_DIRECTORY={install_dir}",
-            f"-DPYTHON_EXECUTABLE={sys.executable}",
+            f"-DPython3_EXECUTABLE={sys.executable}",
+            f"-DPython3_INCLUDE_DIR={system_python_include}",
             f"-DCMAKE_BUILD_TYPE={build_type}",
             f"-DCMAKE_C_COMPILER={cc}",
             f"-DCMAKE_CXX_COMPILER={cxx}",
+            f"-DCMAKE_PREFIX_PATH={pybind11.get_cmake_dir()}",
             "-G", "Ninja" if self._has_ninja() else "Unix Makefiles",
         ]
 

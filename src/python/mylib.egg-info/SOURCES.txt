@@ -1,0 +1,17 @@
+CMakeLists.txt
+MANIFEST.in
+README.md
+pyproject.toml
+setup.py
+src/cpp/bindings/CMakeLists.txt
+src/cpp/bindings/main.cpp
+src/cpp/core/CMakeLists.txt
+src/cpp/core/calculator.cpp
+src/cpp/core/calculator.hpp
+src/python/mylib/__init__.py
+src/python/mylib.egg-info/PKG-INFO
+src/python/mylib.egg-info/SOURCES.txt
+src/python/mylib.egg-info/dependency_links.txt
+src/python/mylib.egg-info/requires.txt
+src/python/mylib.egg-info/top_level.txt
+tests/test_calculator.py
